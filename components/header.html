@@ -1,0 +1,68 @@
+<nav id="navbar">
+    <div class="nav-container">
+
+        <div class="nav-logo" onclick="location.href='../index.html'">
+            <div class="logo-circle">
+                <img src="../imagens/logo-vozes-200.jpg" class="logo-circle" alt="Logotipo VOZES — Além das Fronteiras" title="Logotipo VOZES — Além das Fronteiras">
+            </div>
+            <div class="logo-text">
+                <div class="logo-title">VOZES</div>
+                <div class="logo-subtitle">ALÉM DAS FRONTEIRAS</div>
+            </div>
+        </div>
+
+        <!-- Menu Desktop -->
+        <div class="nav-menu">
+            <a href="../index.html#inicio">Início</a>
+
+            <div class="nav-item-with-submenu">
+                <a class="nav-artigos-trigger">Artigos</a>
+                <div class="aux-artigos-submenu">
+                    <a href="../categoria.html?cat=geopolitica">Geopolítica →</a>
+                    <a href="../categoria.html?cat=comercio-exterior">Comércio Exterior →</a>
+                    <a href="../categoria.html?cat=moda">Moda →</a>
+                    <a href="../categoria.html?cat=meio-ambiente">Meio Ambiente →</a>
+                    <a href="../categoria.html?cat=globalizacao">Globalização →</a>
+                    <a href="../categoria.html?cat=cinema">Cinema →</a>
+                    <a href="../categoria.html?cat=audiovisual">Audiovisual →</a>
+                    <a href="../categoria.html?cat=narrativas">Narrativas →</a>
+                </div>
+            </div>
+
+            <a href="../index.html#sobre">Sobre</a>
+            <a href="../index.html#contato">Contato</a>
+
+              <a href="../index.html#fundadoras">Fundadoras</a>
+        </div>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" onclick="VAF.toggleMenu()" aria-label="Alternar menu">
+            <span class="hamburger"></span>
+        </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="../index.html#inicio">Início</a>
+
+        <!-- Submenu Artigos Mobile -->
+        <div class="aux-mobile-artigos">
+            <button class="aux-artigos-mobile-trigger" onclick="VAF.toggleArticlesSubmenu()" aria-expanded="false">
+                Artigos <span class="aux-arrow">▼</span>
+            </button>
+            <div class="aux-artigos-submenu-mobile">
+                <a href="../categoria.html?cat=geopolitica">Geopolítica</a>
+                <a href="../categoria.html?cat=comercio-exterior">Comércio Exterior</a>
+                <a href="../categoria.html?cat=moda">Moda</a>
+                <a href="../categoria.html?cat=meio-ambiente">Meio Ambiente</a>
+                <a href="../categoria.html?cat=globalizacao">Globalização</a>
+                <a href="../categoria.html?cat=cinema">Cinema</a>
+                <a href="../categoria.html?cat=audiovisual">Audiovisual</a>
+                <a href="../categoria.html?cat=narrativas">Narrativas</a>
+            </div>
+        </div>
+
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#contato">Contato</a>
+    </div>
+</nav>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/logo-vozes-200.jpg" type="image/x-icon">
+    <title>Artigos - VAF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div data-component="header"></div>
+
+    <!-- SEÇÃO DE ARTIGOS DA CATEGORIA -->
+    <section class="category-section">
+        <div class="container">
+            <h2 id="category-title" class="section-title">Carregando...</h2>
+            <p id="category-description" class="section-description"></p>
+
+            <div id="category-articles" class="articles-grid"></div>
+
+            <!-- Mensagem quando não há artigos -->
+            <div id="no-articles" class="no-articles-container">
+                <p class="no-articles-text">
+                    😔 Nenhum artigo encontrado nesta categoria.
+                </p>
+                <a href="index.html" class="back-button">
+                    ← Voltar ao Início
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div data-component="footer"></div>
+
+    <script>
+        // Mapeamento de categorias
+        const CATEGORIAS = {
+            "geopolitica": { nome: "🌍 Geopolítica", descricao: "Análises sobre política internacional e relações globais", filtro: "Geopolítica" },
+            "comercio-exterior": { nome: "📦 Comércio Exterior", descricao: "Tendências e análises do mercado internacional", filtro: "Comércio Exterior" },
+            "moda": { nome: "👗 Moda", descricao: "O universo da moda além das passarelas", filtro: "Moda" },
+            "meio-ambiente": { nome: "🌱 Meio Ambiente", descricao: "Sustentabilidade e questões ambientais globais", filtro: "Meio Ambiente" },
+            "globalizacao": { nome: "🌐 Globalização", descricao: "O mundo conectado e suas transformações", filtro: "Globalização" },
+            "cinema": { nome: "🎬 Cinema", descricao: "Análises e críticas cinematográficas", filtro: "Cinema" },
+            "audiovisual": { nome: "📺 Audiovisual", descricao: "Conteúdo multimídia e produções audiovisuais", filtro: "Audiovisual" },
+            "narrativas": { nome: "📖 Narrativas", descricao: "Histórias reais que precisam ser contadas", filtro: "Narrativas" }
+        };
+
+        async function loadCategoryArticles() {
+            const params = new URLSearchParams(window.location.search);
+            const catSlug = params.get("cat");
+
+            const titleEl = document.getElementById("category-title");
+            const descEl = document.getElementById("category-description");
+            const container = document.getElementById("category-articles");
+            const noArticles = document.getElementById("no-articles");
+
+            if (!catSlug || !CATEGORIAS[catSlug]) {
+                titleEl.textContent = "Categoria não encontrada";
+                descEl.textContent = "Verifique o link e tente novamente.";
+                noArticles.style.display = "block";
+                return;
+            }
+
+            const categoria = CATEGORIAS[catSlug];
+            titleEl.textContent = categoria.nome;
+            descEl.textContent = categoria.descricao;
+            document.title = `${categoria.nome} - VAF`;
+
+            try {
+                const response = await fetch("./posts/allposts.json", { cache: "no-store" });
+                if (!response.ok) throw new Error("Arquivo não encontrado");
+
+                const posts = await response.json();
+
+                const filtered = posts
+                    .filter(post => post.category === categoria.filtro)
+                    .reverse();
+
+                if (filtered.length === 0) {
+                    noArticles.style.display = "block";
+                    return;
+                }
+
+                // Esconder mensagem se houver artigos
+                noArticles.style.display = "none";
+
+                filtered.forEach(post => {
+                    container.insertAdjacentHTML("beforeend", `
+                        <article class="article-card" onclick="location.href='posts/${post.filename}'">
+                            <div class="article-image">
+                                <img src="${post.image}" alt="${post.title}">
+                                <span class="article-category">${post.category}</span>
+                            </div>
+                            <h3 class="article-title">${post.title}</h3>
+                            <div class="article-meta">
+                                <span>👤 ${post.author}</span>
+                                <span>📅 ${new Date(post.date).toLocaleDateString("pt-BR")}</span>
+                            </div>
+                        </article>
+                    `);
+                });
+
+            } catch (err) {
+                console.error("Erro:", err);
+                noArticles.style.display = "block";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadCategoryArticles);
+    </script>
+
+    <script src="components/components.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

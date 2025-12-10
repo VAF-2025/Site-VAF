@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagens/logo-vozes-200.jpg" type="image/x-icon">
+    <title>VAF - Voices Beyond Borders</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+    
+</head>
+
+<body>
+
+    <!-- 🔥 LOAD EN HEADER -->
+    <div data-component="header-en"></div>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="hero-circle"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">🔥 Live Webinar</div>
+
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="VAF.scrollToSection('articles')">
+                    Explore Reports →
+                </button>
+
+                <button class="btn-secondary" onclick="VAF.scrollToSection('about')">
+                    Learn About the Movement
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ARTICLES SECTION ==================== -->
+    <section id="articles" class="featured-section">
+        <div class="container">
+
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Featured Articles</h2>
+                    <p class="section-description">Stories that are moving the world</p>
+                </div>
+            </div>
+
+            <!-- Where EN posts will be loaded -->
+            <div id="articles-list-en" class="articles-grid"></div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="about-section">
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-content">
+                    <div class="about-badge">ABOUT VAF</div>
+
+                    <h2 class="about-title">A Movement of Expression and Courage</h2>
+
+                    <div class="about-text">
+                        <p><strong class="text-orange">VAF</strong> was created from the unrest of those who refuse
+                            silence.</p>
+                        <p>We give space to <strong>marginalized voices</strong> and reveal <strong>realities
+                                ignored</strong> by mainstream media.</p>
+                        <p class="about-quote">"We are the voice that echoes beyond walls, borders, and filters."</p>
+                    </div>
+
+                    <button class="btn-primary">Read Our Full Story →</button>
+                </div>
+
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80" alt="People representing the VAF movement" title="About VAF">
+                    <div class="about-blur"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Join the Movement</h2>
+            <p class="cta-text">Every voice matters. Every story deserves to be told.</p>
+
+            <div class="cta-buttons">
+                <button class="btn-primary">Submit Your Story</button>
+                <button class="btn-secondary">Support the Project</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔥 LOAD EN FOOTER -->
+    <div data-component="footer-en"></div>
+
+    <!-- ======================== LOAD ONLY LATEST 3 EN POSTS ======================== -->
+    <script>
+        async function loadArticlesEN() {
+            const container = document.getElementById("articles-list-en");
+            if (!container) return;
+
+            try {
+                const response = await fetch("../posts/allposts-en.json", { cache: "no-store" });
+
+                if (!response.ok) return;
+
+                let posts = await response.json();
+                if (!Array.isArray(posts)) return;
+
+                // Get only the latest 3
+                posts = posts.slice(-3).reverse();
+
+                posts.forEach(post => {
+                    container.insertAdjacentHTML("beforeend", `
+                        <article class="article-card" onclick="location.href='../posts/${post.filename}'">
+                            <div class="article-image">
+                                <img src="${post.image}">
+                                <span class="article-category">${post.category}</span>
+                            </div>
+
+                            <h3 class="article-title">${post.title}</h3>
+
+                            <div class="article-meta">
+                                <span>👤 ${post.author}</span>
+                                <span>📅 ${new Date(post.date).toLocaleDateString("en-US")}</span>
+                            </div>
+                        </article>
+                    `);
+                });
+
+            } catch (err) {
+                console.error("Error loading EN posts:", err);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadArticlesEN);
+    </script>
+
+    <!-- GLOBAL SCRIPTS -->
+    <script src="../components/components.js"></script>
+    <script src="../scripts.js"></script>
+
+</body>
+
+</html>
