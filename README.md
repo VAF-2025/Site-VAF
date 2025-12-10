@@ -61,7 +61,7 @@ Estamos em fase de expansão e profissionalização! Se você quer fazer parte d
 
 - **Website:** [em breve]
 - **Email:** vozesalemdasfronteiras@gmail.com
-- **Redes Sociais:** https://www.instagram.com/vozesalemdasfronteiras/#
+- **Nosso Instagram:** https://www.instagram.com/vozesalemdasfronteiras/#
 
 ---
 
