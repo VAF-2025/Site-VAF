@@ -182,7 +182,7 @@ body::-webkit-scrollbar {
 }
 
 /* Para Firefox */
-body {
+body {    
     -webkit-scrollbar: none;
 }
 
