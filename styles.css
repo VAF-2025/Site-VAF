@@ -183,7 +183,7 @@ body::-webkit-scrollbar {
 
 /* Para Firefox */
 body {
-    scrollbar-width: none;
+    -webkit-scrollbar: none;
 }
 
 /* Para IE/Edge antigo */
