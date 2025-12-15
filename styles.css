@@ -561,8 +561,9 @@ body {
 }
 
 /* Hero Section */
+/* Onde irá ficar a imagem principal do site */
 .hero {
-    background-image: url('imagens/capa-entrada-site.jpg');
+    background-image: url('imagens/capa-entrada-site.jpg'); /* Substitua pelo caminho da sua imagem atual, baixada na pasta, (coloque entre as aspas simples) o caminho da pasta onde contem sua imagem nova (pasta imagens) */
     padding-top: 80px;
     /* Espaço para a navbar fixa */
     height: 100vh;
