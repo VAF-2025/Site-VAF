@@ -16,6 +16,185 @@
     --color-gray: #6B7280;
 }
 
+/* ==================== CORREÇÕES MOBILE - ADICIONAR NO INÍCIO DO CSS ==================== */
+
+/* Força esconder overflow horizontal global */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Garante que TODOS os containers respeitem o viewport */
+.container,
+.nav-container,
+.hero,
+.hero-content,
+.featured-section,
+.category-section,
+.news-section,
+.about-section,
+.cta-section,
+.footer,
+section {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ==================== CORREÇÃO ESPECÍFICA DO HERO ==================== */
+.hero {
+    width: 100vw; /* Use viewport width ao invés de 100% */
+    margin-left: calc(-50vw + 50%); /* Centraliza se tiver padding no body */
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Garante que o hero-content não vaze */
+.hero-content {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+/* ==================== CORREÇÃO DOS BOTÕES HERO ==================== */
+.hero-buttons {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.btn-primary,
+.btn-secondary {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==================== CORREÇÃO DA NAVBAR ==================== */
+#navbar {
+    width: 100vw;
+    left: 0;
+    right: 0;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* ==================== CORREÇÃO DAS IMAGENS ==================== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.article-image img,
+.about-image img {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ==================== MEDIA QUERIES MOBILE ESPECÍFICAS ==================== */
+@media (max-width: 480px) {
+    /* Reduz padding em telas muito pequenas */
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .hero-content {
+        padding: 3rem 0.75rem;
+    }
+    
+    /* Garante que títulos não quebrem o layout */
+    h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Ajusta tamanho dos botões */
+    .btn-primary,
+    .btn-secondary {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+/* ==================== CORREÇÃO DO MOBILE MENU ==================== */
+.mobile-menu {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* ==================== CORREÇÃO GRID RESPONSIVO ==================== */
+@media (max-width: 767px) {
+    .articles-grid,
+    .news-layout,
+    .about-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+/* ==================== CORREÇÃO DOS CÍRCULOS DECORATIVOS ==================== */
+.hero-circle,
+.about-blur {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero-circle {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .about-blur {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* ==================== CORREÇÃO FINAL - DEBUG (remover depois de testar) ==================== */
+/* Descomente para ver qual elemento está vazando */
+/*
+* {
+    outline: 1px solid red !important;
+}
+*/
+/* ==================== REMOVE SCROLLBAR LATERAL ==================== */
+body {
+    overflow-y: auto; /* Permite scroll vertical normal */
+    overflow-x: hidden; /* Esconde scroll horizontal */
+}
+
+/* Remove a scrollbar visual mas mantém a funcionalidade */
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Para Firefox */
+body {
+    scrollbar-width: none;
+}
+
+/* Para IE/Edge antigo */
+body {
+    -ms-overflow-style: none;
+}
+#navbar,
+.nav-container {
+    overflow: visible; /* Permite que submenus apareçam fora */
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -1026,23 +1205,40 @@ text-shadow: 0 0 15px rgba(201, 76, 255, 0.8);
     font-size: 0.875rem;
 }
 
-/* Responsive Design */
+/* ==================== RESPONSIVE DESIGN - MEDIA QUERIES ==================== */
+
+/* Base Mobile-First (já configurado acima) */
+.menu-toggle {
+    display: block; /* Visível por padrão em mobile */
+}
+
+.nav-menu {
+    display: none; /* Escondido por padrão em mobile */
+}
+
+.btn-subscribe {
+    display: none; /* Escondido em mobile */
+}
+
+/* ==================== TABLET - 640px+ ==================== */
 @media (min-width: 640px) {
     .hero-buttons {
         flex-direction: row;
         justify-content: center;
     }
 
-    .stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
     .cta-buttons {
         flex-direction: row;
         justify-content: center;
     }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: auto; /* Reseta a largura 100% do mobile */
+    }
 }
 
+/* ==================== TABLET/DESKTOP - 768px+ ==================== */
 @media (min-width: 768px) {
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1057,24 +1253,48 @@ text-shadow: 0 0 15px rgba(201, 76, 255, 0.8);
     }
 }
 
+/* ==================== DESKTOP - 1024px+ ==================== */
 @media (min-width: 1024px) {
+    /* Mostra o menu desktop e esconde o hamburger */
     .nav-menu {
-        display: flex;
+        display: flex !important;
     }
 
     .menu-toggle {
-        display: none;
+        display: none !important;
     }
 
-    .btn-link {
-        display: flex;
+    .btn-subscribe {
+        display: inline-block;
     }
 
+    /* Grid de 3 colunas para artigos */
     .articles-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    /* Layout de notícias com sidebar */
     .news-layout {
         grid-template-columns: 2fr 1fr;
+    }
+    
+    .news-sidebar {
+        display: block;
+    }
+
+    /* Mostra o botão "Ver Tudo" */
+    .btn-link {
+        display: flex !important;
+    }
+    
+    /* Remove largura 100% dos botões no desktop */
+    .btn-primary,
+    .btn-secondary {
+        width: auto;
+        max-width: none;
+    }
+    
+    .hero-buttons {
+        padding: 0;
     }
 }
