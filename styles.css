@@ -24,6 +24,7 @@ body {
     width: 100%;
     overflow-x: hidden;
     position: relative;
+    /* rolagem suave*/
 }
 
 /* Garante que TODOS os containers respeitem o viewport */
@@ -723,6 +724,7 @@ a.btn-secondary {
 
 .section-header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 3rem;
@@ -1128,6 +1130,7 @@ a.btn-secondary {
     align-items: center;
     flex-direction: row;
 }
+
 /* final do cod. logo code for causes */
 
 .footer-description {
