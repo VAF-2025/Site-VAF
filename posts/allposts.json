@@ -45,15 +45,6 @@
     "date": "2025-12-09T21:00:13.683Z"
   },
   {
-    "id": 6,
-    "filename": "post-6.html",
-    "title": "A rua pode até ser minha casa, mas não o meu lar",
-    "category": "narrativas",
-    "author": "Júlia Almeida",
-    "image": "https://monitormercantil.com.br/wp-content/uploads/2024/09/Barracas_moradores_rua_Foto_Rovena_Rosa_ABr.jpg",
-    "date": "2026-04-11T16:18:15.231Z"
-  },
-  {
     "id": 7,
     "filename": "post-7.html",
     "title": "Cidadania Econômica: nascer à margem é começar na desvantagem",
@@ -63,21 +54,48 @@
     "date": "2026-04-11T16:33:15.283Z"
   },
   {
-    "id": 8,
-    "filename": "post-8.html",
-    "title": "1 mês da tragédia: como o desastre de Juiz de Fora nos ensina sobre a urgência da adaptação climática",
-    "category": "Meio Ambiente",
-    "author": "Raíssa",
-    "image": "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/9e74/live/2d354e50-125e-11f1-801d-ed3cff6bf876.jpg.webp",
-    "date": "2026-04-11T16:46:58.461Z"
+    "id": 12,
+    "filename": "post-12.html",
+    "title": "A rua pode até ser minha casa, mas não o meu lar",
+    "category": "Narrativas",
+    "author": "Júlia Almeida",
+    "image": "https://s2-extra.glbimg.com/hNqO2R-znWwvxZe9ycgRHYJdNLQ=/0x0:1170x700/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f551ea7087a47f39ead75f64041559a/internal_photos/bs/2024/v/i/UkjqniQxSB8pamADm0xw/barracas.jpg",
+    "date": "2026-04-19T14:18:21.127Z"
   },
   {
-    "id": 9,
-    "filename": "post-9.html",
-    "title": "One month after the tragedy: what the Juiz de Fora disaster teaches us about the urgency of climate adaptation.",
-    "category": "Meio Ambiente",
+    "id": 13,
+    "filename": "post-13.html",
+    "title": "1 mês da tragédia: como o desastre de Juiz de Fora nos ensina sobre a urgência da adaptação climática",
+    "category": "Narrativas",
     "author": "Raíssa",
-    "image": "https://climainfo.org.br/wp-content/uploads/2026/03/desatre-juiz-de-fora.webp",
-    "date": "2026-04-11T16:55:20.987Z"
+    "image": "https://midias.correiobraziliense.com.br/_midias/jpg/2026/02/24/72bfcd60-11c8-11f1-801d-ed3cff6bf876-64653635.jpg",
+    "date": "2026-04-19T14:29:39.610Z"
+  },
+  {
+    "id": 14,
+    "filename": "post-14.html",
+    "title": "One month after the tragedy: what the Juiz de Fora disaster teaches us about the urgency of climate adaptation.",
+    "category": "Narrativas",
+    "author": "Raíssa",
+    "image": "https://admin.itatiaia.com.br/wp-content/uploads/sites/27/2026/04/IMAGENS-PORTAL-ITATIAIA-44.jpg?w=1200&h=900&crop=1",
+    "date": "2026-04-19T14:33:56.712Z"
+  },
+  {
+    "id": 10,
+    "filename": "post-10.html",
+    "title": "Condições, não Capacidade: A Realidade do Ensino no Brasil",
+    "category": "Narrativas",
+    "author": "Rebeca",
+    "image": "https://conteudo.imguol.com.br/c/entretenimento/bc/2021/04/05/crianca-pobre-estudando-1617659777507_v2_4x3.jpg",
+    "date": "2026-04-19T14:57:33.815Z"
+  },
+  {
+    "id": 11,
+    "filename": "post-11.html",
+    "title": "Conditions, not Capacity: The Reality of Education in Brazil",
+    "category": "Narrativas",
+    "author": "Rebeca",
+    "image": "https://noticias.r7.com/resizer/v2/A2PHW642RJEEJN35RZQPX6WW4U.png?auth=1e804ea8bd90a12ae5d22d4d08260af0ff356121f5ecb03980c46a9083b0999f",
+    "date": "2026-04-19T15:06:23.447Z"
   }
 ]
