@@ -409,8 +409,8 @@
                 }
 
                 let allNewPosts;
-                // 🔥 Selecionar apenas os 3 últimos (em ordem do mais novo para o mais antigo)
-                allNewPosts = posts.slice(-6).reverse();
+                // 🔥 Carregar apenas os 9 últimos artigos (em ordem do mais novo para o mais antigo)
+                allNewPosts = posts.slice(-9).reverse();
 
                 allNewPosts.forEach(post => {
                     const cardHTML = `
